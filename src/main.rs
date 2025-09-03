@@ -222,7 +222,8 @@ impl LightCycle {
         for (i, trail) in all_trails.iter().enumerate() {
             let check_range = if i == own_index {
                 // For own trail, skip recent points to avoid self-collision on turns
-                trail.len().saturating_sub(10)
+                // Increased from 10 to 20 to give more room for turns
+                trail.len().saturating_sub(20)
             } else {
                 trail.len()
             };
@@ -238,7 +239,7 @@ impl LightCycle {
         }
     }
 
-    fn ai_update(&mut self, all_trails: &[VecDeque<Point2<f32>>], _own_index: usize) {
+    fn ai_update(&mut self, all_trails: &[VecDeque<Point2<f32>>], own_index: usize) {
         if self.player_type != PlayerType::Computer || !self.alive {
             return;
         }
@@ -247,9 +248,9 @@ impl LightCycle {
         
         // Adjust AI parameters based on difficulty
         let (look_ahead, reaction_distance, turn_chance, boost_threshold, boost_chance) = match self.ai_difficulty {
-            AIDifficulty::Easy => (20.0, CELL_SIZE * 3.0, 5, 30.0, 1),
-            AIDifficulty::Medium => (40.0, CELL_SIZE * 5.0, 2, 50.0, 3),
-            AIDifficulty::Hard => (60.0, CELL_SIZE * 8.0, 1, 70.0, 5),
+            AIDifficulty::Easy => (30.0, CELL_SIZE * 4.0, 5, 30.0, 1),
+            AIDifficulty::Medium => (50.0, CELL_SIZE * 6.0, 2, 50.0, 3),
+            AIDifficulty::Hard => (80.0, CELL_SIZE * 10.0, 1, 70.0, 5),
         };
 
         // Check if we need to turn
@@ -267,8 +268,10 @@ impl LightCycle {
 
         // Check for trail collision
         if !should_turn {
-            for (_i, trail) in all_trails.iter().enumerate() {
-                for point in trail.iter() {
+            for (i, trail) in all_trails.iter().enumerate() {
+                // For own trail, skip more recent points
+                let skip_count = if i == own_index { 30 } else { 0 };
+                for point in trail.iter().skip(skip_count) {
                     let dist_to_future = ((future_x - point.x).powi(2) + 
                                          (future_y - point.y).powi(2)).sqrt();
                     if dist_to_future < reaction_distance {
@@ -300,8 +303,10 @@ impl LightCycle {
                     && test_y >= 10.0 && test_y < GRID_HEIGHT - 10.0;
 
                 if is_safe {
-                    for trail in all_trails.iter() {
-                        for point in trail.iter() {
+                    for (i, trail) in all_trails.iter().enumerate() {
+                        // Skip recent points for own trail when checking safe directions
+                        let skip_count = if i == own_index { 30 } else { 0 };
+                        for point in trail.iter().skip(skip_count) {
                             let dist = ((test_x - point.x).powi(2) + 
                                        (test_y - point.y).powi(2)).sqrt();
                             if dist < reaction_distance {

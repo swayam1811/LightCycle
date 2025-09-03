@@ -53,12 +53,23 @@ cargo build --release
 cargo run --release
 ```
 
-### UDev Requirement
+### Linux Dependencies
 
-Building this project requires `libudev-dev` on Linux. This can be installed on Debian-based systems with:
+Building this project on Linux requires several system libraries. Install them with:
 
+**Debian/Ubuntu:**
 ```bash
-sudo apt-get install libudev-dev
+sudo apt-get install libasound2-dev libudev-dev pkg-config build-essential
+```
+
+**Fedora:**
+```bash
+sudo dnf install alsa-lib-devel systemd-devel
+```
+
+**Arch Linux:**
+```bash
+sudo pacman -S alsa-lib systemd pkgconf
 ```
 
 ## Gameplay
