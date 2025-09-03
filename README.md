@@ -50,6 +50,14 @@ cargo build --release
 cargo run --release
 ```
 
+### UDev Requirement
+
+Building this project requires `libudev-dev` on Linux. This can be installed on Debian-based systems with:
+
+```bash
+sudo apt-get install libudev-dev
+```
+
 ## Gameplay
 
 Navigate your light cycle around the arena, leaving a trail behind you. Avoid crashing into walls, your own trail, or your opponent's trail. The last cycle standing wins!
