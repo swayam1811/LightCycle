@@ -2,6 +2,9 @@
 
 A classic TRON-inspired light cycle game built with Rust and ggez.
 
+![LightCycle menu screenshot](img/menu.png)
+![LightCycle gameplay screenshot](img/game.png)
+
 ## Features
 
 - **Single-player and Two-player modes** - Battle against AI or a friend
